@@ -1,0 +1,207 @@
+ <!-- TODO: Jade: My Items Page -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSpaceUrban - My Items</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        /* TODO: For now dont need the navbar or u can add navbar to just go back to home.html */
+        .navbar {
+            /*  styles for the navigation bar */
+        }
+
+        /* TODO: Style the main container */
+        .container {
+            /* Add styles for the main container */
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 20px;
+        }
+
+        /* TODO: Style as u wish , this is your page, do anything you would like */
+        .items-grid {
+            /* Add styles for the items grid layout */
+        }
+
+        /* TODO: Style the individual item cards */
+        .item-card {
+            /* Add styles for individual item cards */
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        /* TODO: can do later; the filter section */
+        .filter-section {
+            /* Add styles for the filter/sort options */
+        }
+
+        /* TODO: Add more styles as needed */
+    </style>
+</head>
+<body>
+    <!-- TODO: Create navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">GreenSpaceUrban</div>
+        <div class="nav-links">
+            <!-- Add navigation links -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- TODO: Create filter/sort section -->
+        <div class="filter-section">
+            <h2>My Items</h2>
+            <!-- Add:
+                 - Filter by category dropdown
+                 - Filter by status (Available, Pending, Swapped)
+                 - Sort options (Newest, Oldest)
+                 - Search bar
+            -->
+        </div>
+
+        <!-- TODO: Not important: Create item statistics section -->
+        <div class="stats-section">
+            <!-- Add:
+                 - Total items count
+                 - Items available count
+                 - Items pending swap count
+                 - Items swapped count
+            -->
+        </div>
+
+        <!-- TODO: again this page is up to your full creativit: this is just some idea Create items grid -->
+        <div class="items-grid">
+            <!-- TODO: Create template for item card
+                 Each card should show:
+                 - Item image
+                 - Item name
+                 - Category
+                 - Size
+                 - Status
+                 - Date added
+                 - Edit button
+                 - Delete button
+                 - View swap requests button (if any)
+            -->
+        </div>
+
+        <!-- TODO: Create edit item  -->
+        <div id="edit-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Edit Item</h2>
+                <form id="edit-form">
+                    <!-- Add form fields:
+                         - Item name
+                         - Description
+                         - Category
+                         - Size
+                         - Status
+                         - Image
+                    -->
+                </form>
+            </div>
+        </div>
+
+
+        <!-- TODO: Tiya will do this later: Create swap requests modal -->
+        <div id="requests-modal" class="modal" style="display: none;">
+        </div>
+    </div>
+
+    <!-- TODO: Optional: Add loading spinner -->
+    <div id="loading" style="display: none;">
+        Loading...
+    </div>
+
+    <!-- TODO: Add success/error messages -->
+    <div id="messages">
+    </div>
+
+    <script type="module">
+        // TODO: Backedn i will help later: Import Firebase modules - we will add this later
+        // You'll need:
+        // - Firebase Auth
+        // - Firestore
+        // - Storage (for images)
+        
+        // TODO: Dont worry about it: Firebase configuration will be added later
+        const firebaseConfig = {
+            // Firebase config will go here
+        };
+
+        // TODO: Create these functions:
+
+        /* Function: loadUserItems()
+         * Purpose: Load all items belonging to the user
+         * Steps:
+         * 1. Get current user ID
+         * 2. Fetch items from Firestore
+         * 3. Display items in grid
+         */
+
+        /* Function: filterItems()
+         * Purpose: Filter items based on category/status
+         * Steps:
+         * 1. Get filter parameters
+         * 2. Update items display
+         */
+
+        /* Function: sortItems()
+         * Purpose: Sort items by date/status
+         * Steps:
+         * 1. Get sort parameter
+         * 2. Sort items array
+         * 3. Update display
+         */
+
+        /* Function: editItem()
+         * Purpose: Edit item details
+         * Steps:
+         * 1. Show edit modal
+         * 2. Load current item data
+         * 3. Handle form submission
+         * 4. Update Firestore
+         */
+
+        /* Function: deleteItem()
+         * Purpose: Delete an item
+         * Steps:
+         * 1. Show confirmation
+         * 2. Delete from Firestore
+         * 3. Remove from display
+         */
+
+        /* Function: viewSwapRequests()
+         * Purpose: View and manage swap requests
+         * Steps:
+         * 1. Load requests for item
+         * 2. Show requests modal
+         * 3. Handle accept/reject
+         */
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // TODO: Add event listeners for:
+            // - Filter changes
+            // - Sort changes
+            // - Edit buttons
+            // - Delete buttons
+            // - Modal controls
+        });
+
+        // TODO: Add any additional functions needed
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+ <!-- TODO: Domonick: Profile Page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSpaceUrban - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        /* TODO: Style the navbar */
+        .navbar {
+            /* Add styles for the navigation bar */
+        }
+
+        /* TODO: Style the profile container */
+        .profile-container {
+            /* Add styles for the main container */
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 20px;
+        }
+
+        /* TODO: Style the profile sections */
+        .profile-section {
+            /* Add styles for each section */
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        /* TODO: Add more styles as needed */
+    </style>
+</head>
+<body>
+    <!-- TODO: Create navigation bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">GreenSpaceUrban</div>
+        <div class="nav-links">
+            <!-- Add navigation links -->
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <!-- TODO: Create profile header section -->
+        <div class="profile-section">
+            <h1>My Profile</h1>
+            <!-- Add profile image -->
+            <!-- Add basic info (name, email) -->
+            <!-- Add stats (swaps, ratings) -->
+        </div>
+
+        <!-- TODO: Create profile form section -->
+        <div class="profile-section">
+            <h2>Edit Profile</h2>
+            <form id="profile-form">
+                <!-- TODO: Add form fields:
+                     - Display name
+                     - Bio
+                     - Profile image upload
+                     - Clothing preferences
+                     - Size information
+                     - anything you want !!
+                -->
+            </form>
+        </div>
+
+        <!-- TODO: Create stats section -->
+        <div class="profile-section">
+            <h2>My Stats</h2>
+            <!-- Add:
+                 - Number of items listed
+                 - Successful swaps
+                 - User rating
+                 - Member since date
+            -->
+        </div>
+
+        <!-- TODO: Create activity section -->
+        <div class="profile-section">
+            <h2>Recent Activity</h2>
+            <!-- Add:
+                 - Recent swaps
+                 - Listed items
+                 - Received reviews
+            -->
+        </div>
+    </div>
+
+    <!-- TODO: Add loading spinner -->
+    <div id="loading" style="display: none;">
+        Loading...
+    </div>
+
+    <!-- TODO: Add success/error messages -->
+    <div id="messages">
+    </div>
+
+    <script type="module">
+        // TODO: Import Firebase modules - we will do it later dont worry about it 
+        // You'll need:
+        // - Firebase Auth
+        // - Firestore
+        // - Storage (for images)
+        
+        // TODO: u can leave htis for now : Add Firebase configuration
+        const firebaseConfig = {
+            // Add your Firebase config here
+        };
+
+        // TODO: Initialize Firebase
+        
+        // TODO: Create these functions:
+
+        /* Function: loadUserProfile()
+         * Purpose: Load user data from Firebase
+         * Steps:
+         * 1. Get current user ID
+         * 2. Fetch user document from Firestore
+         * 3. Update profile UI with user data
+         */
+
+        /* Function: updateProfile()
+         * Purpose: Save profile changes to Firebase
+         * Steps:
+         * 1. Collect form data
+         * 2. Upload profile image if changed
+         * 3. Update Firestore document
+         * 4. Show success message
+         */
+
+        /* Function: loadUserStats()
+         * Purpose: Load user statistics
+         * Steps:
+         * 1. Count total items
+         * 2. Count successful swaps
+         * 3. Calculate average rating
+         * 4. Update stats UI
+         */
+
+        /* Function: loadRecentActivity()
+         * Purpose: Load user's recent actions
+         * Steps:
+         * 1. Fetch recent swaps
+         * 2. Fetch recent listings
+         * 3. Fetch recent reviews
+         * 4. Update activity UI
+         */
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // TODO: Add event listeners for:
+            // - Form submission
+            // - Image upload
+            // - Navigation
+        });
+
+        // Authentication state observer
+        // TODO: Add authentication check
+        // Redirect to login if user is not authenticated
+    </script>
+</body>
+</html>

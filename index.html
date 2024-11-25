@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenSpaceUrban - GSU Clothes Swap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7f6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .nav-links a:hover {
+    text-decoration: underline;
+    }   
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #2E8B57;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus {
+      border-color: #2E8B57;
+    }
+
+    button {
+      background-color: #2E8B57;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1c6e3a;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .link a {
+      color: #2E8B57;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #2E8B57;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav-links" style="margin-top: 30px; text-align: center;">
+        <a href="about.html" style="color: #A30C0C; text-decoration: none; margin: 0 15px; font-weight: 500;">About Us</a>
+        <a href="contact.html" style="color: #A30C0C; text-decoration: none; margin: 0 15px; font-weight: 500;">Contact Us</a>
+    </div>
+    <h1>Welcome to GreenSpaceUrban!</h1>
+    <div class="form-container">
+      <h3>Login or Register</h3>
+
+      <!-- Registration Form -->
+      <form id="register-form">
+        <input type="email" id="register-email" placeholder="Enter your GSU email" required>
+        <input type="password" id="register-password" placeholder="Create a password" required>
+        <button type="submit">Register</button>
+        <p id="register-error" style="color: red; display: none;"></p>
+      </form>
+
+      <!-- Login Form -->
+      <form id="login-form" style="display: none;">
+        <input type="email" id="login-email" placeholder="Enter your GSU email" required>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+        <p id="login-error" style="color: red; display: none;"></p>
+      </form>
+      
+      <div class="link">
+        <p>Already have an account? <a href="#" onclick="toggleForm()">Login here</a></p>
+        <p>New to GreenSpaceUrban? <a href="#" onclick="toggleForm()">Register here</a></p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+    <p>GreenSpaceUrban &copy; 2024 | All Rights Reserved</p>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const loginError = document.getElementById("login-error");
+      const registerError = document.getElementById("register-error");
+
+      // Clear error messages when switching forms
+      loginError.style.display = "none";
+      registerError.style.display = "none";
+
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+      }
+    }
+  </script>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+  
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDt9N3uuNjh5UkmHgAYjgSajBLYVmw35Rk",
+      authDomain: "greenspaceweb-739cb.firebaseapp.com",
+      projectId: "greenspaceweb-739cb",
+      storageBucket: "greenspaceweb-739cb.firebasestorage.app",
+      messagingSenderId: "7717633332",
+      appId: "1:7717633332:web:a82a062bf6c848d0ef3961"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Check if user is already logged in
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.location.href = 'home.html';
+      }
+    });
+
+    // Function to validate GSU email
+    function isGSUEmail(email) {
+      return email.toLowerCase().endsWith('@gsu.edu');
+    }
+
+    // Function to show error message
+    function showError(formType, message) {
+      const errorElement = document.getElementById(`${formType}-error`);
+      errorElement.textContent = message;
+      errorElement.style.display = "block";
+    }
+  
+    // Registration function
+    const registerForm = document.getElementById("register-form");
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("register-email").value;
+      const password = document.getElementById("register-password").value;
+
+      // Validate GSU email
+      if (!isGSUEmail(email)) {
+        showError('register', 'Please use your GSU email address (@gsu.edu)');
+        return;
+      }
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Create user profile in Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          email: user.email,
+          createdAt: new Date(),
+          swapsCompleted: 0,
+          rating: 5.0
+        });
+
+        // Redirect to home page
+        window.location.href = 'home.html';
+      } catch (error) {
+        let errorMessage = 'Registration failed. Please try again.';
+        if (error.code === 'auth/email-already-in-use') {
+          errorMessage = 'This email is already registered. Please login instead.';
+        } else if (error.code === 'auth/weak-password') {
+          errorMessage = 'Password should be at least 6 characters long.';
+        }
+        showError('register', errorMessage);
+      }
+    });
+
+    // Login function
+    const loginForm = document.getElementById("login-form");
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      // Validate GSU email
+      if (!isGSUEmail(email)) {
+        showError('login', 'Please use your GSU email address (@gsu.edu)');
+        return;
+      }
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        // Redirect is handled by onAuthStateChanged
+      } catch (error) {
+        let errorMessage = 'Login failed. Please check your credentials.';
+        if (error.code === 'auth/user-not-found') {
+          errorMessage = 'No account found with this email. Please register first.';
+        } else if (error.code === 'auth/wrong-password') {
+          errorMessage = 'Incorrect password. Please try again.';
+        }
+        showError('login', errorMessage);
+      }
+    });
+  </script>
+</body>
+</html>
