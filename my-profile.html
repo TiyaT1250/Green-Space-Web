@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSpaceUrban - My Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+
+        }
+
+        /* Profile Container */
+        .profile-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Profile Header */
+        .profile-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .profile-header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .profile-header p {
+            font-size: 18px;
+        }
+
+        /* Profile Info Section */
+        .profile-info {
+            background-color: #9EBDEB;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .profile-info h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .profile-info strong {
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background-color: #5FAF70;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .stat-box:hover {
+            background-color: #4C8A58;
+        }
+
+        /* Recent Activity Section */
+        .recent-activity {
+            background-color: #9EBDEB;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .recent-activity h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .recent-activity p {
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="navbar-brand">GreenSpaceUrban</div>
+    <div class="nav-links">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="available-items.html">ITEMS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Profile Container -->
+<div class="profile-container">
+    <!-- Profile Header Section -->
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/150" alt="User Avatar" class="profile-avatar">
+        <h1>Jane Doe</h1>
+        <p><strong>Email:</strong> john.doe@student.gsu.edu</p>
+        <p><strong> Member Since:</strong> 11/25/2024</p>
+    </div>
+
+    <!-- Profile Info Section -->
+    <div class="profile-info">
+        <h2>Profile Information</h2>
+        <p><strong>Username:</strong> janedoe123</p>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-container">
+        <div class="stat-box">
+            <p>Swaps Made</p>
+            <h3>42</h3>
+        </div>
+        <div class="stat-box">
+            <p>Ratings</p>
+            <h3>4.8/5</h3>
+        </div>
+        <div class="stat-box">
+            <p>Items Shared</p>
+            <h3>120</h3>
+        </div>
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <p>No recent activity to show.</p>
+    </div>
+</div>
+
+</body>
+</html>
