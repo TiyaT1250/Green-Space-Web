@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenSpaceUrban - Available Items</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="index.html">
+                <img src="sample images\GSUrban Logo.png" alt="GreenSpaceUrban Logo" class="logo">
+            </a>
+        </div>
+    
+        <!-- Menu toggle for mobile -->
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html">Available Items</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    
+        <!-- Call-to-Action Buttons -->
+        <div class="nav-actions">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+        </div>
+    </nav>
+    
+    
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dashboard Statistics Section -->
+        <div class="dashboard-stats">
+            <!-- Add statistics cards -->
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="search-filters">
+            <input type="text" id="search-bar" placeholder="Search for items..." />
+            <select id="category-filter">
+                <option value="">All Categories</option>
+                <option value="clothing">Clothing</option>
+                <option value="electronics">Electronics</option>
+                <option value="furniture">Furniture</option>
+            </select>
+            <button class="btn btn-primary" id="filter-btn">Filter</button>
+        </div>
+
+        <!-- Featured Items Section -->
+        <div class="featured-items">
+            <h2>Featured Items</h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <img src="images/sample-item.jpg" alt="Featured Item" />
+                    <h3>Sample Item 1</h3>
+                    <p>Category: Electronics</p>
+                </div>
+                <div class="featured-card">
+                    <img src="images/sample-item.jpg" alt="Featured Item" />
+                    <h3>Sample Item 2</h3>
+                    <p>Category: Clothing</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Items Grid -->
+        <div class="items-grid">
+            <!-- Example Item Cards -->
+            <div class="item-card">
+                <img src="sample images\sample1.jpeg" alt="Sample Item 1" />
+                <h3>Item 1</h3>
+                <p>Category: Electronics</p>
+                <p>Condition: New</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html?name=Item 1&category=Electronics&condition=New';">View Item</button>
+
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample2.jpg" alt="Sample Item 2" />
+                <h3>Item 2</h3>
+                <p>Category: Clothing</p>
+                <p>Condition: Used</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html?name=Item 2&category=Clothing&condition=Used';">View Item</button>
+
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample1.jpeg" alt="Sample Item 1" />
+                <h3>Item 3</h3>
+                <p>Category: Furniture</p>
+                <p>Condition: New</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html?name=Item 3&category=Furniture&condition=New';">View Item</button>
+
+
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample2.jpg" alt="Sample Item 2" />
+                <h3>Item 4</h3>
+                <p>Category: Clothing</p>
+                <p>Condition: New</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html';">View Item</button>
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample1.jpeg" alt="Sample Item 1" />
+                <h3>Item 5</h3>
+                <p>Category: Electronics</p>
+                <p>Condition: Used</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html';">View Item</button>
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample2.jpg" alt="Sample Item 2" />
+                <h3>Item Name</h3>
+                <p>Category: Furniture</p>
+                <p>Condition: Used</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html';">View Item</button>
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample1.jpeg" alt="Sample Item 1" />
+                <h3>Item 6</h3>
+                <p>Category: Electronics</p>
+                <p>Condition: New</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html';">View Item</button>
+
+            </div>
+            <div class="item-card">
+                <img src="sample images\sample2.jpg" alt="Sample Item 2" />
+                <h3>Item 7</h3>
+                <p>Category: Clothing</p>
+                <p>Condition: Used</p>
+                <button class="btn btn-primary" onclick="window.location.href='item-details.html';">View Item</button>
+
+            </div>
+           
+        </div>
+
+        <!-- Sorting Section -->
+        <div class="sorting">
+            <label for="sort-options">Sort By:</label>
+            <select id="sort-options">
+                <option value="name">Name</option>
+                <option value="category">Category</option>
+                <option value="condition">Condition</option>
+            </select>
+        </div>
+
+
+        <!-- Quick View Modal -->
+        <div id="quick-view-modal" class="modal">
+            <!-- Add modal content -->
+        </div>
+
+        <!-- Swap Request Modal -->
+        <div id="swap-modal" class="modal">
+            <!-- Add modal content -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="btn">Previous</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">Next</button>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" style="display: none;">
+        Loading...
+    </div>
+
+    <!-- Notifications -->
+    <div id="notifications">
+        <!-- Add success/error messages -->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>GreenSpaceUrban &copy; 2024 | All Rights Reserved</p>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
