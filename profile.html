@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenSpaceUrban - Profile</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* Base styles */
@@ -32,7 +33,7 @@
         /* TODO: Style the profile sections */
         .profile-section {
             /* Add styles for each section */
-            background: white;
+            background:  #9EBDEB;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -46,14 +47,19 @@
     <nav class="navbar">
         <div class="navbar-brand">GreenSpaceUrban</div>
         <div class="nav-links">
-            <!-- Add navigation links -->
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="available-items.html">ITEMS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="profile.html">PROFILE</a></li>
+            </ul>
         </div>
     </nav>
 
     <div class="profile-container">
         <!-- TODO: Create profile header section -->
         <div class="profile-section">
-            <h1>My Profile</h1>
+            <a href="my-profile.html">MY PROFILE</a>
             <!-- Add profile image -->
             <!-- Add basic info (name, email) -->
             <!-- Add stats (swaps, ratings) -->
@@ -61,7 +67,7 @@
 
         <!-- TODO: Create profile form section -->
         <div class="profile-section">
-            <h2>Edit Profile</h2>
+            <a href="edit-profile.html">EDIT PROFILE</a>
             <form id="profile-form">
                 <!-- TODO: Add form fields:
                      - Display name
@@ -75,25 +81,25 @@
         </div>
 
         <!-- TODO: Create stats section -->
-        <div class="profile-section">
-            <h2>My Stats</h2>
-            <!-- Add:
+        <!-- <div class="profile-section">
+            <h2>My Stats</h2> -->
+           <!-- Add:
                  - Number of items listed
                  - Successful swaps
                  - User rating
                  - Member since date
             -->
-        </div>
+       <!-- </div> -->
 
         <!-- TODO: Create activity section -->
-        <div class="profile-section">
-            <h2>Recent Activity</h2>
+        <!-- <div class="profile-section">
+            <h2>Recent Activity</h2> -->
             <!-- Add:
                  - Recent swaps
                  - Listed items
                  - Received reviews
             -->
-        </div>
+       <!-- </div> -->
     </div>
 
     <!-- TODO: Add loading spinner -->

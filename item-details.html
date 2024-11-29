@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="available-items.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="index.html"><img src="sample images\GSUrban Logo.png" alt="GreenSpaceUrban Logo" class="logo"></a>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="items.html" class="active">Available Items</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="item-details">
+            <img id="item-image" src="" alt="Item Image">
+            <h1 id="item-name">Loading...</h1>
+            <p id="item-category">Category: Loading...</p>
+            <p id="item-condition">Condition: Loading...</p>
+            <p class="availability"><span class="badge">In Stock</span></p>
+            <p class="rating">Rating: ★★★★☆</p>
+            <p id="item-description">Description: Loading...</p>
+            <button class="btn btn-primary" onclick="openRequestForm()">Request Item</button>
+        </div>
+    </div>
+
+    <div id="request-form" style="display: none;">
+        <h2>Request This Item</h2>
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit" class="btn btn-primary">Submit Request</button>
+        </form>
+    </div>
+
+    <div class="request-item">
+        <h2>Request This Item</h2>
+        <form>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+    
+            <button type="submit" class="btn btn-primary">Send Request</button>
+        </form>
+    </div>
+    
+    <footer class="footer">
+        <p>GreenSpaceUrban &copy; 2024 | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Parse URL Parameters
+        const params = new URLSearchParams(window.location.search);
+
+        const itemName = params.get('name') || 'Unknown Item';
+        const itemCategory = params.get('category') || 'Unknown Category';
+        const itemCondition = params.get('condition') || 'Unknown Condition';
+        const itemDescription = params.get('description') || 'No description provided.';
+        const itemImage = params.get('image') || 'images/default-item.jpg';
+
+        // Populate the page with dynamic content
+        document.getElementById('item-name').textContent = itemName;
+        document.getElementById('item-category').textContent = `Category: ${itemCategory}`;
+        document.getElementById('item-condition').textContent = `Condition: ${itemCondition}`;
+        document.getElementById('item-description').textContent = `Description: ${itemDescription}`;
+        document.getElementById('item-image').src = itemImage;
+    </script>
+</body>
+</html>
