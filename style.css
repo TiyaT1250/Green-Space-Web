@@ -42,3 +42,9 @@ nav{
     float: center;
 
 }
+.delete {
+    color: red;
+    font-size: 12px;
+    text-decoration: underline;
+
+}
