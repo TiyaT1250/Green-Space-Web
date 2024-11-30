@@ -36,13 +36,9 @@ nav{
 }
 .edit-profile a{
     float: right;
-    color: black;
+    color: red;
     font-size: 16px;
     font: bold;
-
-}
-.profile-header{
-   float: center;
-
+    float: center;
 
 }
