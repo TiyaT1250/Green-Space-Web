@@ -1,342 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreenSpaceUrban - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-        }
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7f6;
+        color: #333;
+      }
 
-        .navbar {
-            background-color: #2E8B57;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
+      .navbar {
+        background-color: #2E8B57;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-        }
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 2rem;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 20px;
+      }
 
-        .main-actions {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+      .main-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
 
-        .action-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+      .action-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
 
-        .action-card h2 {
-            color: #2E8B57;
-            margin-bottom: 1rem;
-        }
+      .action-card h2 {
+        color: #2E8B57;
+        margin-bottom: 1rem;
+      }
 
-        .clothes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+      .clothes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
 
-        .clothes-item {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+      .clothes-item {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
 
-        .clothes-img {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .clothes-img {
+        width: 100%;
+        height: 200px;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .clothes-info {
-            padding: 1rem;
-        }
+      .clothes-info {
+        padding: 1rem;
+      }
 
-        .btn {
-            background-color: #2E8B57;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
+      .btn {
+        background-color: #2E8B57;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
 
-        .btn:hover {
-            background-color: #1c6e3a;
-        }
+      .btn:hover {
+        background-color: #1c6e3a;
+      }
 
-        .footer {
-            background-color: #2E8B57;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      .footer {
+        background-color: #2E8B57;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
 
-        #upload-form {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
+      #upload-form {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
+      .form-group {
+        margin-bottom: 1rem;
+      }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
 
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .swap-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swap-modal-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+      }
+
+      .my-items-selection {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .item-select-card {
+        border: 1px solid #ddd;
+        padding: 0.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .item-select-card.selected {
+        border-color: #2E8B57;
+        background: #f0f8f0;
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 4px;
+        background: #2E8B57;
+        color: white;
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="navbar-brand">GreenSpaceUrban</div>
-        <div class="nav-links">
-            <a href="#" id="upload-btn">Upload Item</a>
-            <a href="my-profile.html" id="profile-link">Profile</a>
-            <a href="#" id="logout-btn">Logout</a>
-        </div>
+      <div class="navbar-brand">GreenSpaceUrban</div>
+      <div class="nav-links">
+        <a href="my-profile.html" id="profile-link">Profile</a>
+        <a href="myitems.html">My Items</a>
+        <a href="#" id="logout-btn">Logout</a>
+      </div>
     </nav>
-
     <div class="container">
-        <div class="main-actions">
-            <div class="action-card">
-                <h2>Available Items</h2>
-                <p>Browse through items available for swap</p>
-                <button class="btn" onclick="window.location.href='available-items.html'">View Available Items</button>
-            </div>
-            <div class="action-card">
-                <h2>My Items</h2>
-                <p>Manage your uploaded items</p>
-                <button class="btn" onclick="window.location.href='myitems.html'">View My Items</button>
-            </div>
+      <h2>Available Items for Swap</h2>
+      <div class="clothes-grid" id="items-container">
+        <!-- Items will be dynamically loaded here -->
+      </div>
+      <div id="swap-modal" class="swap-modal">
+        <div class="swap-modal-content">
+          <h2>Request Swap</h2>
+          <p>Select your item to swap with:</p>
+          <div id="my-items-selection" class="my-items-selection"></div>
+          <div class="form-group">
+            <label for="swap-message">Message to owner (optional):</label>
+            <textarea id="swap-message" rows="3"></textarea>
+          </div>
+          <button class="btn" onclick="submitSwapRequest()">Send Request</button>
+          <button class="btn" onclick="closeSwapModal()" style="background-color: #666;">Cancel</button>
         </div>
-
-        <div class="clothes-grid" id="items-container">
-            <!-- Items will be dynamically loaded here -->
-        </div>
+      </div>
     </div>
-
-    <!-- Upload Form Modal -->
-    <form id="upload-form">
-        <h2>Upload New Item</h2>
-        <div class="form-group">
-            <label for="item-name">Item Name</label>
-            <input type="text" id="item-name" required>
-        </div>
-        <div class="form-group">
-            <label for="item-description">Description</label>
-            <textarea id="item-description" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="item-size">Size</label>
-            <select id="item-size" required>
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="item-category">Category</label>
-            <select id="item-category" required>
-                <option value="tops">Tops</option>
-                <option value="bottoms">Bottoms</option>
-                <option value="dresses">Dresses</option>
-                <option value="outerwear">Outerwear</option>
-                <option value="accessories">Accessories</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="item-image">Image</label>
-            <input type="file" id="item-image" accept="image/*" required>
-        </div>
-        <button type="submit" class="btn">Upload Item</button>
-        <button type="button" class="btn" onclick="closeUploadForm()" style="background-color: #666;">Cancel</button>
-    </form>
-
+    <div id="notification" class="notification"></div>
     <div class="footer">
-        <p>GreenSpaceUrban &copy; 2024 | All Rights Reserved</p>
+      <p>GreenSpaceUrban &copy; 2024 | All Rights Reserved</p>
     </div>
-
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-        import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
-
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDt9N3uuNjh5UkmHgAYjgSajBLYVmw35Rk",
-            authDomain: "greenspaceweb-739cb.firebaseapp.com",
-            projectId: "greenspaceweb-739cb",
-            storageBucket: "greenspaceweb-739cb.firebasestorage.app",
-            messagingSenderId: "7717633332",
-            appId: "1:7717633332:web:a82a062bf6c848d0ef3961"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const storage = getStorage(app);
-
-        // Upload form handling
-        document.getElementById('upload-btn').addEventListener('click', () => {
-            document.getElementById('upload-form').style.display = 'block';
-        });
-
-        function closeUploadForm() {
-            document.getElementById('upload-form').style.display = 'none';
+      import {initializeApp} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+      import {getAuth,signOut} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+      import {getFirestore, collection, addDoc, getDocs, query, where, serverTimestamp} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+      import {getStorage, ref, uploadBytes, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
+      //  Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDt9N3uuNjh5UkmHgAYjgSajBLYVmw35Rk",
+        authDomain: "greenspaceweb-739cb.firebaseapp.com",
+        projectId: "greenspaceweb-739cb",
+        storageBucket: "greenspaceweb-739cb.firebasestorage.app",
+        messagingSenderId: "7717633332",
+        appId: "1:7717633332:web:a82a062bf6c848d0ef3961"
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const storage = getStorage(app);
+      let selectedItemToSwap = null;
+      let selectedUserItem = null;
+      async function loadItems(filter) {
+        const itemsContainer = document.getElementById('items-container');
+        itemsContainer.innerHTML = ' < p > Loading items... < /p>';
+        try {
+          const currentUser = auth.currentUser;
+          if (!currentUser) return;
+          let q;
+          if (filter === 'myItems') {
+            q = query(collection(db, 'items'), where('userId', '==', currentUser.uid));
+          } else {
+            q = query(collection(db, 'items'), where('status', '==', 'available'));
+          }
+          const querySnapshot = await getDocs(q);
+          itemsContainer.innerHTML = ''; // Clear loading message
+          const items = [];
+          querySnapshot.forEach((doc) => {
+            if (filter !== 'myItems' && doc.data().userId === currentUser.uid) {
+              return;
+            }
+            items.push({
+              id: doc.id,
+              ...doc.data()
+            });
+          });
+          if (items.length === 0) {
+            itemsContainer.innerHTML = ' < p > No items available at the moment. < /p>';
+            return;
+          }
+          items.forEach((item) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'clothes-item';
+            itemElement.innerHTML = `
+               
+                       <div class="clothes-img">
+                           <img src="${item.imageUrl}" alt="${item.name}" style="max-width: 100%; max-height: 100%;">
+                           </div>
+                           <div class="clothes-info">
+                               <h3>${item.name}</h3>
+                               <p>${item.description || ''}</p>
+                               <p>Size: ${item.size}</p>
+                               <p>Category: ${item.category}</p>
+                               <button class="btn" onclick="openSwapModal('${item.id}')">Request Swap</button>
+                           </div>
+           `;
+            itemsContainer.appendChild(itemElement);
+          });
+        } catch (error) {
+          console.error('Error loading items:', error);
+          itemsContainer.innerHTML = `
+           
+                           <p>Error loading items. Please try refreshing the page.</p>
+                           <button class="btn" onclick="loadItems('${filter}')">Retry</button>
+       `;
         }
-
-        // Handle item upload
-        document.getElementById('upload-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const user = auth.currentUser;
-            if (!user) return;
-
-            const itemData = {
-                name: document.getElementById('item-name').value,
-                description: document.getElementById('item-description').value,
-                size: document.getElementById('item-size').value,
-                category: document.getElementById('item-category').value,
-                userId: user.uid,
-                userEmail: user.email,
-                status: 'available',
-                createdAt: new Date()
-            };
-
-            try {
-                // Upload image to Storage
-                const imageFile = document.getElementById('item-image').files[0];
-                const storageRef = ref(storage, `items/${Date.now()}_${imageFile.name}`);
-                const snapshot = await uploadBytes(storageRef, imageFile);
-                const imageUrl = await getDownloadURL(snapshot.ref);
-
-                // Add item to Firestore
-                itemData.imageUrl = imageUrl;
-                await addDoc(collection(db, 'items'), itemData);
-
-                closeUploadForm();
-                loadItems('available');
-            } catch (error) {
-                console.error('Error uploading item:', error);
-            }
+      }
+      // Swap modal functions
+      window.openSwapModal = async (itemId) => {
+        selectedItemToSwap = itemId;
+        const modal = document.getElementById('swap-modal');
+        modal.style.display = 'flex';
+        // Load user's available items
+        const myItemsSelection = document.getElementById('my-items-selection');
+        myItemsSelection.innerHTML = '';
+        const q = query(collection(db, 'items'), where('userId', '==', auth.currentUser.uid), where('status', '==', 'available'));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          const item = doc.data();
+          const itemCard = document.createElement('div');
+          itemCard.className = 'item-select-card';
+          itemCard.innerHTML = `
+                   
+                           <img src="${item.imageUrl}" alt="${item.name}" style="width: 100%; height: 100px; object-fit: cover;">
+                               <p>${item.name}</p>
+               `;
+          itemCard.onclick = () => selectItemForSwap(doc.id, itemCard);
+          myItemsSelection.appendChild(itemCard);
         });
-
-        // Load items
-        async function loadItems(filter) {
-            const itemsContainer = document.getElementById('items-container');
-            itemsContainer.innerHTML = '';
-
-            try {
-                let q;
-                if (filter === 'myItems') {
-                    q = query(collection(db, 'items'), where('userId', '==', auth.currentUser.uid));
-                } else {
-                    q = query(collection(db, 'items'), where('status', '==', 'available'));
-                }
-
-                const querySnapshot = await getDocs(q);
-                querySnapshot.forEach((doc) => {
-                    const item = doc.data();
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'clothes-item';
-                    itemElement.innerHTML = `
-                        <div class="clothes-img">
-                            <img src="${item.imageUrl}" alt="${item.name}" style="max-width: 100%; max-height: 100%;">
-                        </div>
-                        <div class="clothes-info">
-                            <h3>${item.name}</h3>
-                            <p>${item.description}</p>
-                            <p>Size: ${item.size}</p>
-                            <p>Category: ${item.category}</p>
-                            <button class="btn" onclick="requestSwap('${doc.id}')">Request Swap</button>
-                        </div>
-                    `;
-                    itemsContainer.appendChild(itemElement);
-                });
-            } catch (error) {
-                console.error('Error loading items:', error);
-            }
+      };
+      window.closeSwapModal = () => {
+        document.getElementById('swap-modal').style.display = 'none';
+        selectedItemToSwap = null;
+        selectedUserItem = null;
+        document.querySelectorAll('.item-select-card').forEach(card => {
+          card.classList.remove('selected');
+        });
+      };
+      window.selectItemForSwap = (itemId, element) => {
+        document.querySelectorAll('.item-select-card').forEach(card => {
+          card.classList.remove('selected');
+        });
+        element.classList.add('selected');
+        selectedUserItem = itemId;
+      };
+      window.submitSwapRequest = async () => {
+        if (!selectedItemToSwap || !selectedUserItem) {
+          alert('Please select an item to swap with');
+          return;
         }
+        try {
+          const swapRequest = {
+            requestedItemId: selectedItemToSwap,
+            offeredItemId: selectedUserItem,
+            requesterId: auth.currentUser.uid,
+            requesterEmail: auth.currentUser.email,
+            status: 'pending',
+            message: document.getElementById('swap-message').value,
+            timestamp: serverTimestamp()
+          };
+          await addDoc(collection(db, 'swapRequests'), swapRequest);
+          showNotification('Swap request sent successfully!');
+          closeSwapModal();
+        } catch (error) {
+          console.error('Error sending swap request:', error);
+          alert('Failed to send swap request. Please try again.');
+        }
+      };
 
-        // Handle logout
-        document.getElementById('logout-btn').addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error('Error signing out:', error);
-            }
-        });
-
-        // Load initial items
-        window.addEventListener('load', () => {
+      function showNotification(message) {
+        const notification = document.getElementById('notification');
+        notification.textContent = message;
+        notification.style.display = 'block';
+        setTimeout(() => {
+          notification.style.display = 'none';
+        }, 3000);
+      }
+      window.filterItems = loadItems;
+      window.addEventListener('load', () => {
+        auth.onAuthStateChanged((user) => {
+          if (user) {
             loadItems('available');
+          } else {
+            window.location.href = 'index.html';
+          }
         });
-
-        // Make functions available globally
-        window.filterItems = loadItems;
-        window.closeUploadForm = closeUploadForm;
+      });
     </script>
-</body>
+  </body>
 </html>
