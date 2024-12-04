@@ -15,11 +15,6 @@
             background-color: #f4f7f6;
         }
 
-        /* Navigation bar styles */
-        .navbar {
-
-        }
-
         /* Profile Container */
         .profile-container {
             max-width: 900px;
@@ -123,156 +118,229 @@
     </style>
 </head>
 <body>
-<!-- Navigation Bar -->
 <nav class="navbar">
     <div class="navbar-brand">GreenSpaceUrban</div>
     <div class="nav-links">
         <ul>
-            <li><a href="Home.html">HOME</a></li>
+            <li><a href="home.html">HOME</a></li>
             <li><a href="myitems.html">ITEMS</a></li>
             <li><a href="my-profile.html">PROFILE</a></li>
-            <li><a href="">LOGOUT</a></li>
+            <li><a href="#" id="logout-btn">LOGOUT</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Profile Container -->
-
-
 <div class="profile-container">
-    <!-- Profile Header Section -->
     <div class="edit-profile">
         <a href="edit-profile.html">EDIT PROFILE</a>
+    </div>
 
     <div class="profile-header">
-        <img src="https://via.placeholder.com/150" alt="User Avatar" class="profile-avatar">
-        <h1>Jane Doe</h1>
-        <p><strong>Email:</strong> john.doe@student.gsu.edu</p>
-        <p><strong>Phone number:</strong> +1 234 567 8910</p>
-    </div>
+        <img id="profile-avatar" src="https://via.placeholder.com/150" alt="User Avatar" class="profile-avatar">
+        <h1 id="profile-name"></h1>
+        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+        <p><strong>Phone:</strong> <span id="profile-phone"></span></p>
     </div>
 
-    <!-- Profile Info Section -->
     <div class="profile-info">
         <h2>Profile Information</h2>
-        <p><strong>Username:</strong> janedoe123</p>
-        <p><strong> Member Since:</strong> 11/25/2024</p>
+        <p><strong>Username:</strong> <span id="profile-username"></span></p>
+        <p><strong>Member Since:</strong> <span id="member-since"></span></p>
     </div>
 
-
-    <!-- Stats Section -->
     <div class="stats-container">
         <div class="stat-box">
             <p>Swaps Made</p>
-            <h3>42</h3>
+            <h3 id="swaps-made">0</h3>
         </div>
         <div class="stat-box">
             <p>Ratings</p>
-            <h3>4.8/5</h3>
+            <h3 id="ratings">0/5</h3>
         </div>
         <div class="stat-box">
             <p>Items Shared</p>
-            <h3>120</h3>
+            <h3 id="items-shared">0</h3>
         </div>
     </div>
 
-    <!-- Recent Activity Section -->
     <div class="recent-activity">
         <h2>Recent Activity</h2>
-        <p>No recent activity to show.</p>
+        <div id="recent-activity-content"></div>
     </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-        import {
-            getFirestore,
-            collection,
-            query,
-            where,
-            getDocs
-        } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDt9N3uuNjh5UkmHgAYjgSajBLYVmw35Rk",
-            authDomain: "greenspaceweb-739cb.firebaseapp.com",
-            projectId: "greenspaceweb-739cb",
-            storageBucket: "greenspaceweb-739cb.firebasestorage.app",
-            messagingSenderId: "7717633332",
-            appId: "1:7717633332:web:a82a062bf6c848d0ef3961"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // Handle authentication state changes
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                try {
-                    console.log('Current user email:', user.email); // Debug log
-
-                    // Get user data from Firestore
-                    const usersRef = collection(db, 'users');
-                    const q = query(usersRef, where('email', '==', user.email));
-                    const querySnapshot = await getDocs(q);
-
-                    console.log('Query snapshot:', querySnapshot.empty ? 'No documents found' : 'Documents found'); // Debug log
-
-                    if (!querySnapshot.empty) {
-                        const userData = querySnapshot.docs[0].data();
-                        console.log('User data:', userData); // Debug log
-
-                        // Update profile information
-                        document.getElementById('profile-name').textContent = userData.name || 'No Name Set';
-                        document.getElementById('profile-email').textContent = userData.email || user.email;
-                        document.getElementById('profile-username').textContent = userData.username || 'No Username Set';
-                        document.getElementById('swaps-made').textContent = userData.swapsMade || 0;
-                        document.getElementById('ratings').textContent = userData.ratings ? `${userData.ratings}/5` : '0/5';
-                        document.getElementById('items-shared').textContent = userData.itemsShared || 0;
-
-                        // Set member since date
-                        const joinDate = new Date();
-                        document.getElementById('member-since').textContent = joinDate.toLocaleDateString();
-
-                        document.getElementById('recent-activity-content').textContent = 'No recent activity to show.';
-
-                    } else {
-                        console.log('No user document found for email:', user.email); // Debug log
-                        // Set default values if no user document exists
-                        document.getElementById('profile-name').textContent = 'No Name Set';
-                        document.getElementById('profile-email').textContent = user.email;
-                        document.getElementById('profile-username').textContent = 'No Username Set';
-                        document.getElementById('swaps-made').textContent = '0';
-                        document.getElementById('ratings').textContent = '0/5';
-                        document.getElementById('items-shared').textContent = '0';
-                        document.getElementById('recent-activity-content').textContent = 'No recent activity to show.';
-                    }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
-            } else {
-                // Redirect to login if not authenticated
-                window.location.href = 'index.html';
-            }
-        });
-
-        // Handle logout
-        document.getElementById('logout-btn').addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error('Error signing out:', error);
-            }
-        });
-    </script>
 </div>
-</body>
-</html>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
-</div>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDt9N3uuNjh5UkmHgAYjgSajBLYVmw35Rk",
+        authDomain: "greenspaceweb-739cb.firebaseapp.com",
+        projectId: "greenspaceweb-739cb",
+        storageBucket: "greenspaceweb-739cb.firebasestorage.app",
+        messagingSenderId: "7717633332",
+        appId: "1:7717633332:web:a82a062bf6c848d0ef3961"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Get username from email
+    function getUsernameFromEmail(email) {
+        return email.split('@')[0];
+    }
+
+    // Load or create user profile
+    async function loadOrCreateUserProfile(userId, userEmail) {
+        try {
+            const userDocRef = doc(db, 'users', userId);
+            const userDoc = await getDoc(userDocRef);
+
+            if (!userDoc.exists()) {
+                // Create default profile if it doesn't exist
+                const defaultProfile = {
+                    email: userEmail,
+                    userName: getUsernameFromEmail(userEmail),
+                    name: 'Enter Name',
+                    phone: 'Enter Phone Number',
+                    joinDate: new Date(),
+                    swapsMade: 0,
+                    itemsShared: 0,
+                    ratings: 0,
+                    createdAt: new Date()
+                };
+
+                await setDoc(userDocRef, defaultProfile);
+                return defaultProfile;
+            }
+
+            return userDoc.data();
+        } catch (error) {
+            console.error('Error loading/creating user profile:', error);
+            return null;
+        }
+    }
+
+    // Load statistics
+    async function loadStats(userId) {
+        try {
+            // Items count
+            const itemsQuery = query(collection(db, 'items'), where('userId', '==', userId));
+            const itemsCount = (await getDocs(itemsQuery)).size;
+
+            // Swaps count
+            const swapsQuery = query(
+                collection(db, 'swapRequests'),
+                where('requesterId', '==', userId),
+                where('status', '==', 'accepted')
+            );
+            const swapsCount = (await getDocs(swapsQuery)).size;
+
+            return { itemsCount, swapsCount };
+        } catch (error) {
+            console.error('Error loading stats:', error);
+            return { itemsCount: 0, swapsCount: 0 };
+        }
+    }
+
+    // Update UI
+    async function updateUI(user, userData) {
+        // Profile info
+        document.getElementById('profile-email').textContent = user.email;
+        document.getElementById('profile-username').textContent = getUsernameFromEmail(user.email);
+        document.getElementById('profile-name').textContent = userData.name || 'Enter Name';
+        document.getElementById('profile-phone').textContent = userData.phone || 'Enter Phone Number';
+
+        // Member since date
+        const memberSince = userData.joinDate ?
+            new Date(userData.joinDate.seconds * 1000).toLocaleDateString() :
+            new Date().toLocaleDateString();
+        document.getElementById('member-since').textContent = memberSince;
+
+        // Load and update statistics
+        const stats = await loadStats(user.uid);
+        document.getElementById('items-shared').textContent = stats.itemsCount;
+        document.getElementById('swaps-made').textContent = stats.swapsCount;
+        document.getElementById('ratings').textContent = `${userData.ratings || '0'}/5`;
+
+        // First, add this default avatar SVG (you can use it as a constant in your script)
+        const DEFAULT_AVATAR = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%235FAF70"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>`;
+
+        // Then modify the updateUI function's profile picture section:
+        // Replace the existing profile picture code with this:
+        if (userData.profilePicture) {
+            document.getElementById('profile-avatar').src = userData.profilePicture;
+        } else {
+            document.getElementById('profile-avatar').src = DEFAULT_AVATAR;
+        }
+        // Update profile picture if exists
+        if (userData.profilePicture) {
+            document.getElementById('profile-avatar').src = userData.profilePicture;
+        }
+
+        // Load recent activity
+        await loadRecentActivity(user.uid);
+    }
+
+    // Load recent activity
+    async function loadRecentActivity(userId) {
+        const activityContent = document.getElementById('recent-activity-content');
+        try {
+            const recentSwapsQuery = query(
+                collection(db, 'swapRequests'),
+                where('requesterId', '==', userId),
+                where('status', 'in', ['accepted', 'pending'])
+            );
+
+            const swapsSnapshot = await getDocs(recentSwapsQuery);
+
+            if (swapsSnapshot.empty) {
+                activityContent.innerHTML = '<p>No recent activity</p>';
+                return;
+            }
+
+            const activities = swapsSnapshot.docs.map(doc => {
+                const data = doc.data();
+                return `
+                    <div class="activity-item">
+                        <p>${new Date(data.timestamp?.seconds * 1000).toLocaleDateString() || 'Recent'} -
+                           ${data.status === 'accepted' ? 'Swap completed' : 'Pending swap request'}</p>
+                    </div>
+                `;
+            });
+
+            activityContent.innerHTML = activities.join('');
+        } catch (error) {
+            console.error('Error loading activity:', error);
+            activityContent.innerHTML = '<p>Error loading activity</p>';
+        }
+    }
+
+    // Initialize
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            console.log('Loading profile for:', user.email);
+            const userData = await loadOrCreateUserProfile(user.uid, user.email);
+            if (userData) {
+                await updateUI(user, userData);
+            }
+        } else {
+            window.location.href = 'index.html';
+        }
+    });
+
+    // Logout handler
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+        try {
+            await signOut(auth);
+            window.location.href = 'index.html';
+        } catch (error) {
+            console.error('Error signing out:', error);
+            alert('Error signing out. Please try again.');
+        }
+    });
+</script>
 
 </body>
 </html>
